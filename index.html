@@ -146,11 +146,22 @@
      <!-- Creating second canvas -->
      <canvas id="myCanvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas2" */
-        var canvas = document.getElementById('myCanvas2');
-        var context2 = canvas.getContext("2d");
+        var canvas2 = document.getElementById('myCanvas2');
+        var context2 = canvas2.getContext("2d");
         context2.font = '20pt Calibri';
         context2.fillStyle = "black";
         context2.fillText("Blue image will go here", 10, 20);
+        var imgData = context2.getImageData(0, 0, canvas2.width, canvas2.height);    //getting pixel information of image in first canvas
+        //changing image color
+        var i;
+       for (i = 0; i < imgData.data.length; i += 4) 
+       {
+        imgData.data[i] = 255-imgData.data[i];
+        imgData.data[i + 1] = 255-imgData.data[i + 1];
+        imgData.data[i + 2] = 255-imgData.data[i + 2];
+        imgData.data[i + 3] = 255;
+       }
+        context2.putImageData(imgData, 0, 0); //uploading changed image to second canvas
       </script>
      
      
