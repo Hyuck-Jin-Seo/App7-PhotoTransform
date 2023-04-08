@@ -153,6 +153,7 @@
         context2.fillText("Blue image will go here", 10, 20);
         
        //Changing image color
+        document.getElementById("img").onload = function() {        
         var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
         var i;
         for (i = 0; i < imgData.data.length; i += 4) 
@@ -163,6 +164,7 @@
          imgData.data[i+3] = imgData.data[i+3];
         }
   context2.putImageData(imgData, 0, 0);
+        }
       </script>
      
      
