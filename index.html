@@ -100,7 +100,7 @@
           drawImageIOSFix(context2,img2, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);/* uploading second image to second canvas */
           
           /* Changing second image color */
-          var imgData = context2.getImageData(0, 0, context2.width, context2.height);
+          var imgData = context.getImageData(0, 0, 600, 500);
           var i;
           for (i = 0; i < imgData.data.length; i += 4) 
           {
