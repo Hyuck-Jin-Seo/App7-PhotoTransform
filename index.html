@@ -153,6 +153,7 @@
         context2.fillText("Blue image will go here", 10, 20);
         
        //Changing image color
+        context2.drawImage(img, 0, 0);
         var context3 = canvas.getContext("2d");     
         var imgData = context3.getImageData(0, 0, canvas.width, canvas.height);
         var i;
